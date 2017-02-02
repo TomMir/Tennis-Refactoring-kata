@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MoreThanFourCalc.cs" />
+    <Compile Include="EqualizeCalc .cs" />
+    <Compile Include="OtherCasesCalc.cs" />
+    <Compile Include="ScoreCalculation.cs" />
     <Compile Include="IScoreCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ITennisGame.cs" />
