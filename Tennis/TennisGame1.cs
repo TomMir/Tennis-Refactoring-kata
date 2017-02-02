@@ -27,7 +27,7 @@ namespace Tennis
             var tempScore = 0;
             if (_mScore1 == _mScore2)
             {
-                score = ToStringScore(score);
+                score = ToStringScore();
             }
             else if (_mScore1 >= 4 || _mScore2 >= 4)
             {
@@ -63,11 +63,10 @@ namespace Tennis
             return score;
         }
 
-        private string ToStringScore(string score)
+        private string ToStringScore()
         {
             var retArray = new[] {"Love-All", "Fifteen-All", "Thirty-All"};
-            if(_mScore1<=2) return retArray[_mScore1];
-            return "Deuce";
+            return _mScore1<=2 ? retArray[_mScore1] : "Deuce";
         }
     }
 }
