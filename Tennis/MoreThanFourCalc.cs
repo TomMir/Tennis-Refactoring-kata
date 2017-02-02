@@ -16,10 +16,18 @@
             if (mScore1 < 4 && mScore2 < 4) return this._successor.Calculate(mScore1, mScore2);
             string score;
             var minusResult = mScore1 - mScore2;
-            if (minusResult == 1) score = "Advantage " + _player1Name;
-            else if (minusResult == -1) score = "Advantage " + _player2Name;
-            else if (minusResult >= 2) score = "Win for " + _player1Name;
-            else score = "Win for " + _player2Name;
+            switch (minusResult)
+            {
+                case 1:
+                    score = "Advantage " + _player1Name;
+                    break;
+                case -1:
+                    score = "Advantage " + _player2Name;
+                    break;
+                default:
+                    score = minusResult >= 2 ? "Win for " + _player1Name : "Win for " + _player2Name;
+                    break;
+            }
             return score;
         }
     }
