@@ -31,7 +31,7 @@ namespace Tennis
             }
             else if (_mScore1 >= 4 || _mScore2 >= 4)
             {
-                score = StringAdvantageScore(score);
+                score = StringAdvantageScore();
             }
             else
             {
@@ -59,8 +59,9 @@ namespace Tennis
             return score;
         }
 
-        private string StringAdvantageScore(string score)
+        private string StringAdvantageScore()
         {
+            string score;
             var minusResult = _mScore1 - _mScore2;
             if (minusResult == 1) score = "Advantage " + _player1Name;
             else if (minusResult == -1) score = "Advantage " + _player2Name;
