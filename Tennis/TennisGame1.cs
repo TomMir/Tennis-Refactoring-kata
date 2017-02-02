@@ -65,17 +65,9 @@ namespace Tennis
 
         private string ToStringScore(string score)
         {
-            switch (_mScore1)
-            {
-                case 0:
-                    return "Love-All";
-                case 1:
-                    return "Fifteen-All";
-                case 2:
-                    return "Thirty-All";
-                default:
-                    return "Deuce";
-            }
+            var retArray = new[] {"Love-All", "Fifteen-All", "Thirty-All"};
+            if(_mScore1<=2) return retArray[_mScore1];
+            return "Deuce";
         }
     }
 }
