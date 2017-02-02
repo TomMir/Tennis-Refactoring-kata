@@ -31,11 +31,7 @@ namespace Tennis
             }
             else if (_mScore1 >= 4 || _mScore2 >= 4)
             {
-                var minusResult = _mScore1 - _mScore2;
-                if (minusResult == 1) score = "Advantage "+ _player1Name;
-                else if (minusResult == -1) score = "Advantage "+_player2Name;
-                else if (minusResult >= 2) score = "Win for "+ _player1Name;
-                else score = "Win for "+ _player2Name;
+                score = StringAdvantageScore(score);
             }
             else
             {
@@ -60,6 +56,16 @@ namespace Tennis
                     }
                 }
             }
+            return score;
+        }
+
+        private string StringAdvantageScore(string score)
+        {
+            var minusResult = _mScore1 - _mScore2;
+            if (minusResult == 1) score = "Advantage " + _player1Name;
+            else if (minusResult == -1) score = "Advantage " + _player2Name;
+            else if (minusResult >= 2) score = "Win for " + _player1Name;
+            else score = "Win for " + _player2Name;
             return score;
         }
 
