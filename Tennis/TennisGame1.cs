@@ -4,8 +4,8 @@ namespace Tennis
     {
         private int _mScore1 = 0;
         private int _mScore2 = 0;
-        private string _player1Name;
-        private string _player2Name;
+        private readonly string _player1Name;
+        private readonly string _player2Name;
 
         public TennisGame1(string player1Name, string player2Name)
         {
@@ -27,22 +27,7 @@ namespace Tennis
             var tempScore = 0;
             if (_mScore1 == _mScore2)
             {
-                switch (_mScore1)
-                {
-                    case 0:
-                        score = "Love-All";
-                        break;
-                    case 1:
-                        score = "Fifteen-All";
-                        break;
-                    case 2:
-                        score = "Thirty-All";
-                        break;
-                    default:
-                        score = "Deuce";
-                        break;
-
-                }
+                score = ToStringScore(score);
             }
             else if (_mScore1 >= 4 || _mScore2 >= 4)
             {
@@ -74,6 +59,26 @@ namespace Tennis
                             break;
                     }
                 }
+            }
+            return score;
+        }
+
+        private string ToStringScore(string score)
+        {
+            switch (_mScore1)
+            {
+                case 0:
+                    score = "Love-All";
+                    break;
+                case 1:
+                    score = "Fifteen-All";
+                    break;
+                case 2:
+                    score = "Thirty-All";
+                    break;
+                default:
+                    score = "Deuce";
+                    break;
             }
             return score;
         }
