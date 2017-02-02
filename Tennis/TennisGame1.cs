@@ -35,25 +35,36 @@ namespace Tennis
             }
             else
             {
-                for (var i = 1; i < 3; i++)
+                score = StringScoreOther(score);
+            }
+            return score;
+        }
+
+        private string StringScoreOther(string score)
+        {
+            int tempScore;
+            for (var i = 1; i < 3; i++)
+            {
+                if (i == 1) tempScore = _mScore1;
+                else
                 {
-                    if (i == 1) tempScore = _mScore1;
-                    else { score += "-"; tempScore = _mScore2; }
-                    switch (tempScore)
-                    {
-                        case 0:
-                            score += "Love";
-                            break;
-                        case 1:
-                            score += "Fifteen";
-                            break;
-                        case 2:
-                            score += "Thirty";
-                            break;
-                        case 3:
-                            score += "Forty";
-                            break;
-                    }
+                    score += "-";
+                    tempScore = _mScore2;
+                }
+                switch (tempScore)
+                {
+                    case 0:
+                        score += "Love";
+                        break;
+                    case 1:
+                        score += "Fifteen";
+                        break;
+                    case 2:
+                        score += "Thirty";
+                        break;
+                    case 3:
+                        score += "Forty";
+                        break;
                 }
             }
             return score;
