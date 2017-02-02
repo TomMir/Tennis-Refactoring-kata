@@ -42,30 +42,17 @@ namespace Tennis
 
         private string StringScoreOther(string score)
         {
-            int tempScore;
             for (var i = 1; i < 3; i++)
             {
+                int tempScore;
                 if (i == 1) tempScore = _mScore1;
                 else
                 {
                     score += "-";
                     tempScore = _mScore2;
                 }
-                switch (tempScore)
-                {
-                    case 0:
-                        score += "Love";
-                        break;
-                    case 1:
-                        score += "Fifteen";
-                        break;
-                    case 2:
-                        score += "Thirty";
-                        break;
-                    case 3:
-                        score += "Forty";
-                        break;
-                }
+                var StoreStringArray = new[] {"Love", "Fifteen", "Thirty", "Forty"};
+                score += StoreStringArray[tempScore];
             }
             return score;
         }
