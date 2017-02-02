@@ -1,34 +1,37 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Tennis
 {
-    class TennisGame1 : ITennisGame
-    {
-        private int _mScore1 = 0;
-        private int _mScore2 = 0;
-        private readonly string _player1Name;
-        private ScoreCounter _scoreCounter;
-        private string _player2Name;
+    
 
-        public TennisGame1(string player1Name, string player2Name)
+    public class ScoreCounter
+    {
+        private int _mScore1;
+        private int _mScore2;
+        private readonly string _player1Name;
+        private readonly string _player2Name;
+
+        public ScoreCounter(string player1Name, string player2Name)
         {
             _player1Name = player1Name;
             _player2Name = player2Name;
-            _scoreCounter =new ScoreCounter(player1Name,player2Name);
         }
 
-        public void WonPoint(string playerName)
+        public void UpdateScore1()
         {
-            if (playerName == "player1")
-                _scoreCounter.UpdateScore1();
-            else
-                _scoreCounter.UpdateScore2();
+            _mScore1++;
         }
 
-        public string GetScore()
+        public void UpdateScore2()
         {
-            return _scoreCounter.AsString();
+            _mScore2++;
         }
 
-        private string Score()
+        public string AsString()
         {
             string score = "";
             if (_mScore1 == _mScore2)
@@ -57,7 +60,7 @@ namespace Tennis
                     score += "-";
                     tempScore = _mScore2;
                 }
-                var storeStringArray = new[] {"Love", "Fifteen", "Thirty", "Forty"};
+                var storeStringArray = new[] { "Love", "Fifteen", "Thirty", "Forty" };
                 score += storeStringArray[tempScore];
             }
             return score;
@@ -76,9 +79,8 @@ namespace Tennis
 
         private string ToStringScore()
         {
-            var retArray = new[] {"Love-All", "Fifteen-All", "Thirty-All"};
-            return _mScore1<=2 ? retArray[_mScore1] : "Deuce";
+            var retArray = new[] { "Love-All", "Fifteen-All", "Thirty-All" };
+            return _mScore1 <= 2 ? retArray[_mScore1] : "Deuce";
         }
     }
 }
-
