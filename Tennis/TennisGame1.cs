@@ -23,8 +23,12 @@ namespace Tennis
 
         public string GetScore()
         {
+            return Score();
+        }
+
+        private string Score()
+        {
             string score = "";
-            var tempScore = 0;
             if (_mScore1 == _mScore2)
             {
                 score = ToStringScore();
@@ -51,8 +55,8 @@ namespace Tennis
                     score += "-";
                     tempScore = _mScore2;
                 }
-                var StoreStringArray = new[] {"Love", "Fifteen", "Thirty", "Forty"};
-                score += StoreStringArray[tempScore];
+                var storeStringArray = new[] {"Love", "Fifteen", "Thirty", "Forty"};
+                score += storeStringArray[tempScore];
             }
             return score;
         }
