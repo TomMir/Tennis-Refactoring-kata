@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tennis
 {
-    
-
-    public class ScoreCounter
+    public class ScoreCounter : IScoreCounter
     {
         private int _mScore1;
         private int _mScore2;
